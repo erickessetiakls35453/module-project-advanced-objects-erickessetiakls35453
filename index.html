@@ -17,16 +17,25 @@
     // To do this, translate each 🧠 set of instructions into a working class.
     // ❗ Classes are scaffolded for you.
     // ❗ Watch the Guided Project to learn proper debugging technique.
-
-    // 👉 CHALLENGE 1
-    // 🧠 Build a PeterPan class. This class allows to instantiate persons with Peter Pan syndrome.
+ // 🧠 Build a PeterPan class. This class allows to instantiate persons with Peter Pan syndrome.
     // 🧠 When instantiating a new person using this class, we provide a string with the name of the person.
     // 🧠 The new person will have a `name` prop initialised to the desired name, and an `age` prop initialised to 0.
     // 🧠 The person also has an `ageGracefully` method, which increases `age` by 1 each time it's called.
     // 🧠 But there's a catch: once `age` reaches 12, the `ageGracefully` method will have no effect.
+    // 👉 CHALLENGE 1
+    // 🧠 
     class PeterPan {
+constructor(desiredName){
+  this.name = desiredName;
+  this.age = 0
+}
+ageGracefully(){
+  if (this.age < 12) {
+    this.age++
+  }
 
-    }
+}
+}
 
     // 👉 CHALLENGE 2
     // 🧠 Build an AirPlane class. This class allows to instantiate airplanes.
@@ -38,7 +47,22 @@
     // 🧠 Calling `down` changes the `altitude` prop appropriately and returns the updated `altitude`.
     // 🧠 If calling `down` would cause the plane to go below altitude zero, `altitude` is set to 0 and the string "CRASH!" is returned.
     class AirPlane {
-
+constructor(model){
+this.model= model
+this.altitude = 0
+}
+up(meters){
+  this .altitude += meters
+  return this.altitude
+}
+down(meters){
+  if(this.altitude >= meters){
+    this.altitude-= meters
+    return this.altitude
+  }
+  this.altitude = 0
+  return "CRASH!"
+}
     }
 
     // 👉 CHALLENGE 3
@@ -47,9 +71,32 @@
     // 🧠 The initial value of `isOn` will be the Boolean false.
     // 🧠 The methods work as one might expect, changing the value of `isOn` to the appropriate Boolean.
     // 🧠 The methods also return one of these two strings: "You turned the bulb ON", or "You turned the bulb OFF".
-    class Bulb {
+    
 
+class Bulb {
+    // Constructor to initialize the Bulb instance
+    constructor() {
+        this.isOn = false; // Initial value of isOn is false
     }
+
+    // Method to turn the bulb on
+    turnOn() {
+        this.isOn = true;
+        return "You turned the bulb ON";
+    }
+
+    // Method to turn the bulb off
+    turnOff() {
+        this.isOn = false;
+        return "You turned the bulb OFF";
+    }
+
+    // Method to toggle the bulb's state
+    toggle() {
+        this.isOn = !this.isOn;
+        return this.isOn ? "You turned the bulb ON" : "You turned the bulb OFF";
+    }
+}
 
     // 👉 CHALLENGE 4
     // 🧠 Build a CountDown class that can count down starting at any number we pass to the constructor.
@@ -65,9 +112,43 @@
     //   minusThree.count() // returns "Liftoff!"
     //   minusThree.count() // returns null
     //   minusThree.count() // returns null
+    
+    
     class CountDown {
-
+    // The constructor takes an initial number as its parameter.
+    constructor(startNumber) {
+        this.startNumber = startNumber;
     }
+
+    // The count method handles the countdown and output formatting.
+    count() {
+        // If the startNumber is already below 0, it means "Liftoff!" has been reached.
+        if (this.startNumber < 0) {
+            return null;
+        } else if (this.startNumber === 0) {
+            // If the current number is 0, decrement to indicate liftoff has occurred.
+            this.startNumber--;
+            return "Liftoff!";
+        } else {
+            // Return the current number followed by an exclamation mark and decrement for the next call.
+            return `${this.startNumber--}!`;
+        }
+    }
+}
+
+// Example usage:
+let minusThree = new CountDown(3); // Create an instance with the number 3
+console.log(minusThree.count()); // Output: "3!"
+console.log(minusThree.count()); // Output: "2!"
+console.log(minusThree.count()); // Output: "1!"
+console.log(minusThree.count()); // Output: "Liftoff!"
+console.log(minusThree.count()); // Output: null
+console.log(minusThree.count()); // Output: null
+
+// 🧪 TESTS, do not work below this line
+// 🧪 TESTS, do not work below this line
+// 🧪 TESTS, do not work below this line
+
 
     // 🧪 TESTS, do not work below this line
     // 🧪 TESTS, do not work below this line
@@ -318,3 +399,4 @@
 </body>
 
 </html>
+

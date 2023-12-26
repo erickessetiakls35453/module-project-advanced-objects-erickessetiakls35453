@@ -1,7 +1,7 @@
 # Advanced Objects - Module Project
 
 ## Instructions
-
+affimative
 1. Clone this repository to your computer using git: `git clone <this repository's remote url>`
 2. Open the `index.html` file in both VSCode and the Chrome browser:
     - VSCode is where you will make changes to the code.
